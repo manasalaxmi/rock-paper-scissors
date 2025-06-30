@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Rock Paper Scissors</title>
+
+  <!-- Load Retro Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
     body {
       background-color: #1e2a38; /* dark dull blue */
@@ -15,6 +19,7 @@
     h1 {
       font-size: 2rem;
       margin-bottom: 20px;
+      font-family: 'Press Start 2P', monospace;
     }
 
     .choices {
@@ -50,6 +55,12 @@
       white-space: pre-line;
       margin-top: 30px;
       font-size: 18px;
+      font-family: 'Press Start 2P', monospace;
+      color: #ffeb3b;
+      text-shadow:
+        2px 2px 0 #ff0000,
+        4px 4px 0 #0000ff;
+      line-height: 2;
     }
 
     #playAgainBtn {
@@ -78,7 +89,10 @@
     <button onclick="playRound('scissors')">Scissors</button>
   </div>
 
+  <!-- Final result with GAME OVER font styling -->
   <div id="finalResult"></div>
+
+  <!-- Round result (before Game Over) -->
   <div id="result"></div>
 
   <div class="scoreboard">
