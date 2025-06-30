@@ -5,57 +5,70 @@ const maxRounds = 5;
 
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
-  const randomIndex = Math.floor(Math.random() * 3);
-  return choices[randomIndex];
+  return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function playRound(humanChoice) {
   if (roundCount >= maxRounds) return;
 
   const computerChoice = getComputerChoice();
-  let resultMessage = "";
+  let roundResult = "";
 
   if (humanChoice === computerChoice) {
-    resultMessage = `Round ${roundCount + 1}: It's a tie! You both chose ${humanChoice}.`;
+    roundResult = `Round ${roundCount + 1}: It's a tie! You both chose ${humanChoice}.`;
   } else if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
-    resultMessage = `Round ${roundCount + 1}: You win! ${humanChoice} beats ${computerChoice}.`;
+    roundResult = `Round ${roundCount + 1}: You win! ${humanChoice} beats ${computerChoice}.`;
     humanScore++;
   } else {
-    resultMessage = `Round ${roundCount + 1}: You lose! ${computerChoice} beats ${humanChoice}.`;
+    roundResult = `Round ${roundCount + 1}: You lose! ${computerChoice} beats ${humanChoice}.`;
     computerScore++;
   }
 
   roundCount++;
 
-  document.getElementById("result").textContent = resultMessage;
+  document.getElementById("result").textContent = roundResult;
   document.getElementById("humanScore").textContent = humanScore;
   document.getElementById("computerScore").textContent = computerScore;
 
   if (roundCount === maxRounds) {
-    endGame();
+    disableButtons();
+    setTimeout(endGame, 1000);
   }
 }
 
 function endGame() {
-  let finalMessage = "";
-
+  let gameStatus = "";
   if (humanScore > computerScore) {
-    finalMessage = "Game Over: You won the game!";
+    gameStatus = "You won the game!";
   } else if (humanScore < computerScore) {
-    finalMessage = "Game Over: Computer won the game!";
+    gameStatus = "Computer won the game!";
   } else {
-    finalMessage = "Game Over: It's a tie!";
+    gameStatus = "It's a tie!";
   }
 
-  document.getElementById("result").textContent += `\n${finalMessage}`;
+  const finalResult = `GAME OVER
+${gameStatus}
+Your Score: ${humanScore}
+Computer Score: ${computerScore}`;
 
-  // Disable choice buttons
+  document.getElementById("finalResult").textContent = finalResult;
+
+  // Reset game after 3 seconds
+  setTimeout(resetGame, 3000);
+}
+
+function disableButtons() {
   const buttons = document.querySelectorAll(".choices button");
-  buttons.forEach(button => button.disabled = true);
+  buttons.forEach(btn => btn.disabled = true);
+}
+
+function enableButtons() {
+  const buttons = document.querySelectorAll(".choices button");
+  buttons.forEach(btn => btn.disabled = false);
 }
 
 function resetGame() {
@@ -64,9 +77,10 @@ function resetGame() {
   roundCount = 0;
 
   document.getElementById("result").textContent = "";
+  document.getElementById("finalResult").textContent = "";
   document.getElementById("humanScore").textContent = "0";
   document.getElementById("computerScore").textContent = "0";
 
-  const buttons = document.querySelectorAll(".choices button");
-  buttons.forEach(button => button.disabled = false);
+  enableButtons();
 }
+
