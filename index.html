@@ -6,7 +6,7 @@
   <style>
     body {
       background-color: #1e2a38; /* dark dull blue */
-      color: #f6ef1a; /* yellow font */
+      color: #ffeb3b; /* yellow font */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
       padding: 50px;
@@ -28,7 +28,7 @@
       cursor: pointer;
       border: none;
       border-radius: 5px;
-      background-color: #394b5f; /* button color to match the dark blue */
+      background-color: #394b5f;
       color: #ffeb3b;
     }
 
@@ -52,20 +52,25 @@
       font-size: 18px;
     }
 
-    #resetBtn {
+    #playAgainBtn {
       margin-top: 30px;
+      padding: 10px 20px;
       background-color: #edcb09;
       color: #1e2a38;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      display: none;
     }
 
-    #resetBtn:hover {
+    #playAgainBtn:hover {
       background-color: #f8cf1b;
     }
   </style>
 </head>
 <body>
 
-  <h1>Rock Paper Scissors </h1>
+  <h1>Rock Paper Scissors</h1>
 
   <div class="choices">
     <button onclick="playRound('rock')">Rock</button>
@@ -73,10 +78,7 @@
     <button onclick="playRound('scissors')">Scissors</button>
   </div>
 
-  <!-- Final game result will be shown here AFTER 5 rounds -->
   <div id="finalResult"></div>
-
-  <!-- Round result (optional, will only be shown at end of game) -->
   <div id="result"></div>
 
   <div class="scoreboard">
@@ -84,7 +86,8 @@
     <p>Computer Score: <span id="computerScore">0</span></p>
   </div>
 
-  <button id="resetBtn" onclick="resetGame()">Reset Game</button>
+  <!-- Hidden initially, shown after game ends -->
+  <button id="playAgainBtn" onclick="resetGame()">Play Again</button>
 
   <script src="script.js"></script>
 </body>
