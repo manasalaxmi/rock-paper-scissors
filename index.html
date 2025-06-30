@@ -3,8 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      background-color: #1e2a38; /* dark dull blue */
+      color: #ffeb3b; /* yellow font */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .choices {
+      margin: 20px 0;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #394b5f; /* button color to match the dark blue */
+      color: #ffeb3b;
+    }
+
+    button:hover {
+      background-color: #2c3a4a;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .scoreboard {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    #resetBtn {
+      margin-top: 30px;
+      background-color: #edcb09;
+      color: #1e2a38;
+    }
+
+    #resetBtn:hover {
+      background-color: #f8cf1b;
+    }
+  </style>
 </head>
 <body>
+
+  <h1>Rock Paper Scissors</h1>
+
+  <div class="choices">
+    <button onclick="playRound('rock')">Rock</button>
+    <button onclick="playRound('paper')">Paper</button>
+    <button onclick="playRound('scissors')">Scissors</button>
+  </div>
+
+  <div id="result"></div>
+
+  <div class="scoreboard">
+    <p>Your Score: <span id="humanScore">0</span></p>
+    <p>Computer Score: <span id="computerScore">0</span></p>
+  </div>
+
+  <button id="resetBtn" onclick="resetGame()">Reset Game</button>
+
   <script src="script.js"></script>
 </body>
 </html>
