@@ -6,7 +6,7 @@
   <style>
     body {
       background-color: #1e2a38; /* dark dull blue */
-      color: #ffeb3b; /* yellow font */
+      color: #f6ef1a; /* yellow font */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
       padding: 50px;
@@ -46,6 +46,12 @@
       font-size: 16px;
     }
 
+    #finalResult {
+      white-space: pre-line;
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
     #resetBtn {
       margin-top: 30px;
       background-color: #edcb09;
@@ -59,7 +65,7 @@
 </head>
 <body>
 
-  <h1>Rock Paper Scissors</h1>
+  <h1>Rock Paper Scissors </h1>
 
   <div class="choices">
     <button onclick="playRound('rock')">Rock</button>
@@ -67,6 +73,10 @@
     <button onclick="playRound('scissors')">Scissors</button>
   </div>
 
+  <!-- Final game result will be shown here AFTER 5 rounds -->
+  <div id="finalResult"></div>
+
+  <!-- Round result (optional, will only be shown at end of game) -->
   <div id="result"></div>
 
   <div class="scoreboard">
