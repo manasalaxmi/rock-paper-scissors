@@ -36,12 +36,13 @@ function playRound(humanChoice) {
 
   if (roundCount === maxRounds) {
     disableButtons();
-    setTimeout(endGame, 1000);
+    setTimeout(endGame, 500);
   }
 }
 
 function endGame() {
   let gameStatus = "";
+
   if (humanScore > computerScore) {
     gameStatus = "You won the game!";
   } else if (humanScore < computerScore) {
@@ -57,18 +58,16 @@ Computer Score: ${computerScore}`;
 
   document.getElementById("finalResult").textContent = finalResult;
 
-  // Reset game after 3 seconds
-  setTimeout(resetGame, 3000);
+  // Show Play Again button
+  document.getElementById("playAgainBtn").style.display = "inline-block";
 }
 
 function disableButtons() {
-  const buttons = document.querySelectorAll(".choices button");
-  buttons.forEach(btn => btn.disabled = true);
+  document.querySelectorAll(".choices button").forEach(btn => btn.disabled = true);
 }
 
 function enableButtons() {
-  const buttons = document.querySelectorAll(".choices button");
-  buttons.forEach(btn => btn.disabled = false);
+  document.querySelectorAll(".choices button").forEach(btn => btn.disabled = false);
 }
 
 function resetGame() {
@@ -81,6 +80,8 @@ function resetGame() {
   document.getElementById("humanScore").textContent = "0";
   document.getElementById("computerScore").textContent = "0";
 
+  // Hide play again button
+  document.getElementById("playAgainBtn").style.display = "none";
+
   enableButtons();
 }
-
