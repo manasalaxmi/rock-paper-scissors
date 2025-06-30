@@ -9,54 +9,62 @@
 
   <style>
     body {
-      background-color: #1e2a38; /* dark dull blue */
+      background-color: #1a2634; /* dark dull blue */
       color: #ffeb3b; /* yellow font */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Press Start 2P', monospace;
       text-align: center;
       padding: 50px;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      font-family: 'Press Start 2P', monospace;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow:
+        2px 2px 0 #ff0000,
+        4px 4px 0 #0202f1;
     }
 
     .choices {
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     button {
-      font-size: 16px;
-      padding: 10px 20px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 14px;
+      padding: 16px 24px;
       margin: 10px;
       cursor: pointer;
       border: none;
       border-radius: 5px;
-      background-color: #394b5f;
-      color: #ffeb3b;
+      background-color: #ffeb3b; /* solid yellow */
+      color: #1e2a38;
+      text-transform: uppercase;
     }
 
     button:hover {
-      background-color: #2c3a4a;
+      background-color: #f1d90c;
     }
 
     #result {
       margin-top: 30px;
-      font-size: 18px;
+      font-size: 14px;
+      text-shadow:
+        2px 2px 0 #ff0000,
+        4px 4px 0 #0000ff;
     }
 
     .scoreboard {
       margin-top: 20px;
-      font-size: 16px;
+      font-size: 14px;
+      text-shadow:
+        2px 2px 0 #ff0000,
+        4px 4px 0 #0000ff;
     }
 
     #finalResult {
       white-space: pre-line;
-      margin-top: 30px;
-      font-size: 18px;
-      font-family: 'Press Start 2P', monospace;
-      color: #ffeb3b;
+      margin-top: 40px;
+      font-size: 16px;
       text-shadow:
         2px 2px 0 #ff0000,
         4px 4px 0 #0000ff;
@@ -64,18 +72,20 @@
     }
 
     #playAgainBtn {
-      margin-top: 30px;
-      padding: 10px 20px;
-      background-color: #edcb09;
+      margin-top: 40px;
+      padding: 16px 24px;
+      background-color: #ffeb3b;
       color: #1e2a38;
       border: none;
       border-radius: 5px;
-      font-size: 16px;
+      font-size: 14px;
+      font-family: 'Press Start 2P', monospace;
+      text-transform: uppercase;
       display: none;
     }
 
     #playAgainBtn:hover {
-      background-color: #f8cf1b;
+      background-color: #f1d90c;
     }
   </style>
 </head>
@@ -89,10 +99,10 @@
     <button onclick="playRound('scissors')">Scissors</button>
   </div>
 
-  <!-- Final result with GAME OVER font styling -->
+  <!-- Final result with arcade styling -->
   <div id="finalResult"></div>
 
-  <!-- Round result (before Game Over) -->
+  <!-- Round result -->
   <div id="result"></div>
 
   <div class="scoreboard">
@@ -100,7 +110,6 @@
     <p>Computer Score: <span id="computerScore">0</span></p>
   </div>
 
-  <!-- Hidden initially, shown after game ends -->
   <button id="playAgainBtn" onclick="resetGame()">Play Again</button>
 
   <script src="script.js"></script>
