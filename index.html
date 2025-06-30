@@ -19,9 +19,7 @@
     h1 {
       font-size: 3rem;
       margin-bottom: 30px;
-      text-shadow:
-        2px 2px 0 #ff0000,
-        4px 4px 0 #0000ff;
+      text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #0000ff;
     }
 
     .choices {
@@ -45,7 +43,6 @@
       background-color: #f1d90c;
     }
 
-    /* Plain yellow for round result */
     #result {
       margin-top: 30px;
       font-size: 14px;
@@ -53,7 +50,6 @@
       text-shadow: none;
     }
 
-    /* Plain yellow for scoreboard */
     .scoreboard {
       margin-top: 20px;
       font-size: 14px;
@@ -61,19 +57,32 @@
       text-shadow: none;
     }
 
-    /* GAME OVER message with arcade shadow */
     #finalResult {
       white-space: pre-line;
       margin-top: 40px;
-      font-size: 16px;
       font-family: 'Press Start 2P', monospace;
+      line-height: 1.5;
+    }
+
+    .arcade-title {
       color: #ffeb3b;
       text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #0000ff;
-      line-height: 2;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .plain-yellow {
+      color: #ffeb3b;
+      text-shadow: none;
+      margin: 5px 0;
+    }
+
+    .plain-yellow.small {
+      font-size: 14px;
     }
 
     #playAgainBtn {
-      margin-top: 40px;
+      margin-top: 30px;
       padding: 16px 24px;
       background-color: #ffeb3b;
       color: #1e2a38;
@@ -100,17 +109,14 @@
     <button onclick="playRound('scissors')">Scissors</button>
   </div>
 
-  <!-- Final result with gradient/shadow -->
-  <div id="finalResult"></div>
-
-  <!-- Plain yellow round result -->
   <div id="result"></div>
 
-  <!-- Plain yellow scoreboard -->
-  <div class="scoreboard">
+  <div class="scoreboard" id="scoreboard">
     <p>Your Score: <span id="humanScore">0</span></p>
     <p>Computer Score: <span id="computerScore">0</span></p>
   </div>
+
+  <div id="finalResult"></div>
 
   <button id="playAgainBtn" onclick="resetGame()">Play Again</button>
 
