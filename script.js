@@ -42,7 +42,6 @@ function playRound(humanChoice) {
 
 function endGame() {
   let gameStatus = "";
-
   if (humanScore > computerScore) {
     gameStatus = "You won the game!";
   } else if (humanScore < computerScore) {
@@ -51,18 +50,20 @@ function endGame() {
     gameStatus = "It's a tie!";
   }
 
-  // Clear round result
+  const finalResultHTML = `
+    <div class="arcade-title">GAME OVER</div>
+    <div class="plain-yellow">${gameStatus}</div>
+    <div class="plain-yellow small">Your Score: ${humanScore}</div>
+    <div class="plain-yellow small">Computer Score: ${computerScore}</div>
+  `;
+
   document.getElementById("result").textContent = "";
-
-  // Show only final status — NOT scores again
-  const finalResult = `GAME OVER
-${gameStatus}`;
-
-  document.getElementById("finalResult").textContent = finalResult;
-
-  // Show Play Again button
+  document.getElementById("scoreboard").style.display = "none";
+  document.getElementById("finalResult").innerHTML = finalResultHTML;
   document.getElementById("playAgainBtn").style.display = "inline-block";
 }
+
+
 
 
 function disableButtons() {
@@ -78,13 +79,12 @@ function resetGame() {
   computerScore = 0;
   roundCount = 0;
 
-  document.getElementById("result").textContent = "";
-  document.getElementById("finalResult").textContent = "";
   document.getElementById("humanScore").textContent = "0";
   document.getElementById("computerScore").textContent = "0";
-
-  // Hide play again button
+  document.getElementById("result").textContent = "";
+  document.getElementById("finalResult").innerHTML = "";
+  document.getElementById("scoreboard").style.display = "block";
   document.getElementById("playAgainBtn").style.display = "none";
-
+ 
   enableButtons();
 }
