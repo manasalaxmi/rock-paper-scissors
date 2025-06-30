@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <title>Rock Paper Scissors</title>
 
-  <!-- Load Retro Font -->
+  <!-- Retro arcade font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
     body {
-      background-color: #1a2634; /* dark dull blue */
-      color: #ffeb3b; /* yellow font */
+      background-color: #1e2a38;
+      color: #ffeb3b;
       font-family: 'Press Start 2P', monospace;
       text-align: center;
       padding: 50px;
@@ -19,9 +19,7 @@
     h1 {
       font-size: 3rem;
       margin-bottom: 30px;
-      text-shadow:
-        2px 2px 0 #ff0000,
-        4px 4px 0 #0202f1;
+      text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #0000ff;
     }
 
     .choices {
@@ -36,7 +34,7 @@
       cursor: pointer;
       border: none;
       border-radius: 5px;
-      background-color: #ffeb3b; /* solid yellow */
+      background-color: #ffeb3b;
       color: #1e2a38;
       text-transform: uppercase;
     }
@@ -48,27 +46,34 @@
     #result {
       margin-top: 30px;
       font-size: 14px;
-      text-shadow:
-        2px 2px 0 #ff0000,
-        4px 4px 0 #0000ff;
+      color: #ffeb3b;
+      text-shadow: none;
     }
 
     .scoreboard {
       margin-top: 20px;
       font-size: 14px;
-      text-shadow:
-        2px 2px 0 #ff0000,
-        4px 4px 0 #0000ff;
+      color: #ffeb3b;
+      text-shadow: none;
     }
 
+    /* GAME OVER title with arcade style */
     #finalResult {
       white-space: pre-line;
       margin-top: 40px;
-      font-size: 16px;
-      text-shadow:
-        2px 2px 0 #ff0000,
-        4px 4px 0 #0000ff;
+      font-size: 24px;
+      font-family: 'Press Start 2P', monospace;
       line-height: 2;
+    }
+
+    .arcade-title {
+      color: #ffeb3b;
+      text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #0000ff;
+    }
+
+    .plain-yellow {
+      color: #ffeb3b;
+      text-shadow: none;
     }
 
     #playAgainBtn {
@@ -99,16 +104,17 @@
     <button onclick="playRound('scissors')">Scissors</button>
   </div>
 
-  <!-- Final result with arcade styling -->
-  <div id="finalResult"></div>
-
   <!-- Round result -->
   <div id="result"></div>
 
-  <div class="scoreboard">
+  <!-- Scoreboard -->
+  <div class="scoreboard" id="scoreboard">
     <p>Your Score: <span id="humanScore">0</span></p>
     <p>Computer Score: <span id="computerScore">0</span></p>
   </div>
+
+  <!-- Game Over Display -->
+  <div id="finalResult"></div>
 
   <button id="playAgainBtn" onclick="resetGame()">Play Again</button>
 
