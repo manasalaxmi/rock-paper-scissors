@@ -51,16 +51,19 @@ function endGame() {
     gameStatus = "It's a tie!";
   }
 
+  // Clear round result
+  document.getElementById("result").textContent = "";
+
+  // Show only final status — NOT scores again
   const finalResult = `GAME OVER
-${gameStatus}
-Your Score: ${humanScore}
-Computer Score: ${computerScore}`;
+${gameStatus}`;
 
   document.getElementById("finalResult").textContent = finalResult;
 
   // Show Play Again button
   document.getElementById("playAgainBtn").style.display = "inline-block";
 }
+
 
 function disableButtons() {
   document.querySelectorAll(".choices button").forEach(btn => btn.disabled = true);
